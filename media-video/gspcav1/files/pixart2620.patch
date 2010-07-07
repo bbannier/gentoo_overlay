@@ -1,0 +1,49 @@
+From da50c493d30cb53bf14550b7530de01900605832 Mon Sep 17 00:00:00 2001
+From: root <root@vitamina.(none)>
+Date: Wed, 19 Nov 2008 21:22:24 -0500
+Subject: [PATCH] Added pixart2620
+
+patch from http://ubuntuforums.org/archive/index.php/t-900250.html
+---
+ gspca_core.c |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+diff --git a/gspca_core.c b/gspca_core.c
+index 068ef33..8fe9c3b 100755
+--- a/gspca_core.c
++++ b/gspca_core.c
+@@ -422,6 +422,7 @@ enum {
+ 	Lenovo,
+ 	LogitechQC4Notebooks,
+ 	PhilipsSPC220NC,
++	MikomiM6607M,
+ 	LastCamera
+ };
+ static struct cam_list clist[] = {
+@@ -620,6 +621,7 @@ static struct cam_list clist[] = {
+ 	{Lenovo,"lenovo MI1310_SOC"},
+ 	{LogitechQC4Notebooks,"Logitech QuickCam for Notebooks"},
+ 	{PhilipsSPC220NC,"Philips SPC220NC PAC207"},
++	{MikomiM6607M,"Mikomi M6607M"},
+ 	{-1, NULL}
+ };
+ static __devinitdata struct usb_device_id device_table[] = {
+@@ -834,6 +836,7 @@ static __devinitdata struct usb_device_id device_table[] = {
+ 	{USB_DEVICE(0x046d, 0x08af)},	/* Logitech QuickCam Cool */
+ 	{USB_DEVICE(0x093a, 0x2472)},	/* PAC207 Genius VideoCam ge110 */
+ 	{USB_DEVICE(0x093a, 0x2463)},	/* Philips spc200nc pac207 */
++	{USB_DEVICE(0x093a, 0x2620)},	/* Mikomi M6607M */
+ 	{USB_DEVICE(0x0000, 0x0000)},	/* MystFromOri Unknow Camera */
+ 	{}			/* Terminating entry */
+ };
+@@ -4136,6 +4139,7 @@ and should be a spca504b then overwrite that setting */
+ 		case 0x2608:
+ 		case 0x260e:
+ 		case 0x260f:
++		case 0x2620:
+ 			spca50x->desc = PAC7311;
+ 			spca50x->bridge = BRIDGE_PAC7311;
+ 			spca50x->sensor = SENSOR_PAC7311;
+-- 
+1.6.0.4
+
