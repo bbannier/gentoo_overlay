@@ -2,6 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
+
+inherit autotools
+
 DESCRIPTION="The Open Thesaurus"
 HOMEPAGE="http://artha.sourcefourge.net"
 SRC_URI="http://voxel.dl.sourceforge.net/sourceforge/${PN}/${PF}.tar.gz"
@@ -13,8 +17,16 @@ IUSE=""
 
 DEPEND=">=dev-libs/glib-2.14
 		>=x11-libs/gtk+-2.12
-		>=app-dicts/wordnet-3.0"
+		>=app-dicts/wordnet-3.0
+		>=dev-libs/dbus-glib-0.70"
 RDEPEND=""
+
+src_prepare() {
+	# disable targets that depend on missing files, should be fixed upstream
+	sed -i -e '/desktop_DATA/d' \
+		-e '/man_MANS/d' data/Makefile.am
+	eautoreconf
+}
 
 src_install() {
 	emake DESTDIR="${D}" install || die "install failed"
