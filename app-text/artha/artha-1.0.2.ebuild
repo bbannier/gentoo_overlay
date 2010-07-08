@@ -21,13 +21,6 @@ DEPEND=">=dev-libs/glib-2.14
 		>=dev-libs/dbus-glib-0.70"
 RDEPEND=""
 
-src_prepare() {
-	# disable targets that depend on missing files, should be fixed upstream
-	sed -i -e '/desktop_DATA/d' \
-		-e '/man_MANS/d' data/Makefile.am
-	eautoreconf
-}
-
 src_install() {
 	emake DESTDIR="${D}" install || die "install failed"
 }
