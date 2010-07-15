@@ -12,7 +12,7 @@ EHG_REPO_URI="http://bitbucket.org/klukas/${PN}"
 
 LICENSE="PYTHON"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=""
