@@ -12,9 +12,10 @@ SRC_URI="mirror://sourceforge/cppcheck/${P}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="qt4"
+IUSE="qt4 html"
 
-DEPEND="qt4? ( x11-libs/qt-gui:4 )"
+DEPEND="qt4? ( x11-libs/qt-gui:4 )
+		html? ( dev-python/pgments )"
 
 src_prepare() {
 	sed -i \
@@ -48,5 +49,8 @@ src_install() {
 	if use qt4; then
 		newbin gui/gui cppcheck-gui
 		dodoc readme_gui.txt gui/projectfile.txt gui/gui.cppcheck
+	fi
+	if use html; then
+		dobin htmlreport/cppcheck-htmlreport
 	fi
 }
