@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="qt4 html"
 
 DEPEND="qt4? ( x11-libs/qt-gui:4 )
-		html? ( dev-python/pgments )"
+		html? ( dev-python/pygments )"
 
 src_prepare() {
 	sed -i \
