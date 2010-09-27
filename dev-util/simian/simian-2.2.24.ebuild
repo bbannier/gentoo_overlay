@@ -8,7 +8,7 @@ SRC_URI="http://www.redhillconsulting.com.au/products/simian/${PF}.tar.gz"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=""
